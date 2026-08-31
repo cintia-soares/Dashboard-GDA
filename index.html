@@ -202,13 +202,13 @@
   </div>
   <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;">
     <div>
-      <h1>Dashboard farol - Gerenciamento das Atividades (GDA)</h1>
+      <h1>Dashboard - Gerenciamento das Atividades (GDA)</h1>
       <p class="subtitle" style="display:none;">Base: aba "RELATÓRIO VISITA NE1" · <span id="total-reg">158</span> registros válidos · follow-up considerado = data mais recente preenchida entre os 5 follow-ups</p>
       <p class="subtitle" id="last-update" style="display:none;">Dados carregados a partir do arquivo original enviado</p>
     </div>
     <div style="text-align:right;flex-shrink:0;">
       <button class="btn-reset" id="btn-refresh" style="font-weight:600;">Atualizar agora</button>
-      <p id="upload-status" class="subtitle" style="margin-top:6px;max-width:260px;">Atualiza sozinho a cada 5 minutos</p>
+      <p id="upload-status" class="subtitle" style="margin-top:6px;max-width:260px;">Atualiza a cada 5 minutos</p>
     </div>
   </div>
 
@@ -294,7 +294,7 @@
 // Para adicionar, remover ou trocar uma senha, edite esta lista.
 // admin:true = enxerga todas as filiais e áreas sem restrição.
 // ============================================================
-const CREDENTIALS = [{"filial": "IMPERATRIZ", "setor": "ADM", "senha": "IMZADM2026"}, {"filial": "IMPERATRIZ", "setor": "COM", "senha": "IMZCOM2026"}, {"filial": "IMPERATRIZ", "setor": "G&G", "senha": "IMZGG2026"}, {"filial": "IMPERATRIZ", "setor": "LOG", "senha": "IMZLOG2026"}, {"filial": "SÃO LUÍS", "setor": "ADM", "senha": "SLUADM2026"}, {"filial": "SÃO LUÍS", "setor": "COM", "senha": "SLUCOM2026"}, {"filial": "SÃO LUÍS", "setor": "G&G", "senha": "SLUGG2026"}, {"filial": "SÃO LUÍS", "setor": "LOG", "senha": "SLULOG2026"}, {"filial": "NE1 (Ger. Regional)", "setor": "TODOS", "senha": "0412", "filiais": ["IMPERATRIZ", "SÃO LUÍS"]}, {"filial": "NE1 (Trainee)", "setor": "TODOS", "senha": "04@12", "admin": true}];
+const CREDENTIALS = [{"filial": "IMPERATRIZ", "setor": "ADM", "senha": "adm12"}, {"filial": "IMPERATRIZ", "setor": "COM", "senha": "com90"}, {"filial": "IMPERATRIZ", "setor": "G&G", "senha": "IMZGG2026"}, {"filial": "IMPERATRIZ", "setor": "LOG", "senha": "IMZLOG2026"}, {"filial": "SÃO LUÍS", "setor": "ADM", "senha": "SLUADM2026"}, {"filial": "SÃO LUÍS", "setor": "COM", "senha": "SLUCOM2026"}, {"filial": "SÃO LUÍS", "setor": "G&G", "senha": "SLUGG2026"}, {"filial": "SÃO LUÍS", "setor": "LOG", "senha": "SLULOG2026"}, {"filial": "NE1 (Ger. Regional)", "setor": "TODOS", "senha": "0412", "filiais": ["IMPERATRIZ", "SÃO LUÍS"]}, {"filial": "NE1 (Trainee)", "setor": "TODOS", "senha": "04@12", "admin": true}];
 
 let SCOPE = null; // { filial, setor, admin } depois do login
 
@@ -471,7 +471,7 @@ async function fetchAndApplyCsv(manual){
     document.getElementById('total-reg').textContent = DATA.length;
     const now = new Date();
     document.getElementById('last-update').textContent =
-      `Atualizado automaticamente em ${now.toLocaleDateString('pt-BR')} às ${now.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}`;
+    Atualizado automaticamente em ${now.toLocaleDateString('pt-BR')} às ${now.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}`;
     if(statusEl){
       statusEl.textContent = manual ? `${DATA.length} registros atualizados.` : 'Atualiza sozinho a cada 5 minutos';
       statusEl.style.color = manual ? 'var(--verde-strong)' : '#5f5e5a';
